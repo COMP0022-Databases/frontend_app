@@ -1,19 +1,21 @@
 import React from 'react'
 import "./App.css";
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Footer from './components/Footer';
+
+import Home from './Home'
+import Search from './Search'
+import ErrorPage from './ErrorPage'
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+
 function App() {
   return (
-    <div className='bg-[url("../public/8.png")]'>
-      <div className='bg-[#000300] bg-opacity-80'>
-        <Navbar />
-        <Hero />
-        <Footer/>
-      </div>
-      
-     
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path='/search' element={<Search />} />
+        <Route path='/*' element={<ErrorPage />} />
+      </Routes>
+    </BrowserRouter>
+
   )
 }
 

@@ -1,5 +1,7 @@
 import React from 'react'
 import Typed from 'react-typed';
+import {Link} from "react-router-dom";
+
 
 const Hero = () => {
     return (
@@ -16,7 +18,9 @@ const Hero = () => {
                      />
                 </div>
                 <p className='md:text-2xl sm:text-xl text-gray-600'>Lorem Ipsum et dolor calem. Sin esperam dulat mangare comida.</p>
-                <button className='font-semibold transition ease-in-out delay-150 bg-fuchsia-300  hover:bg-sky-200 duration-300  opacity-80 my-6 mx-auto py-3 mt-8 w-[200px] rounded-md  text-black'>Get Started</button>
+                <Link to="/search">
+                    <button className='font-semibold transition ease-in-out delay-150 bg-fuchsia-300  hover:bg-sky-200 duration-300  opacity-80 my-6 mx-auto py-3 mt-8 w-[200px] rounded-md  text-black'>Get Started</button>
+                </Link>
             </div>
         </div>
     );
