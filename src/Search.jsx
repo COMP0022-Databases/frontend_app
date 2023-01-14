@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 
 const Search = () => {
     return (
-        <div className='bg-[url("../public/8.png")]'>
+        <div className='bg-[url("../public/8.png")] bg-no-repeat'>
             <div className='bg-[#000300] bg-opacity-80'>
                 <Navbar />
                 <div>
