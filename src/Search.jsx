@@ -14,10 +14,60 @@ const Search = () => {
                     <h1 className='md:text-7xl sm:text-6xl text-4xl font-bold md:py-6 sm:px-6 '>Search.</h1>
                     <p className=' ml-6  md:text-2xl sm:text-xl text-slate-600'>Find thousands of movies with relevant ratings and analytics.</p>
 
-                </div>
-            
-                <div className="h-[40em] w-full ml-0  mt-20 text-white  bg-gray-800 opacity-80 shadow-2xl">
-                
+                </div >
+        
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 p-20 ">
+                    <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center p-10 rounded-lg row-span-5">1</div>
+                    <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center  rounded-2xl m-4">
+                        <img
+                                src="samplecover.png"
+                                className="rounded-2xl w-full h-80 object-cover"
+                                alt="..."
+                            />
+                            <h1>Title</h1>
+                    </div>
+                    <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center  rounded-2xl m-4">
+                        <img
+                                src="samplecover.png"
+                                className="rounded-2xl w-full h-80 object-cover"
+                                alt="..."
+                            />
+                            <h1>Title</h1>
+                    </div>
+                    <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center  rounded-2xl m-4">
+                        <img
+                                src="samplecover.png"
+                                className="rounded-2xl w-full h-80 object-cover"
+                                alt="..."
+                            />
+                            <h1>Title</h1>
+                    </div>
+                    <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center  rounded-2xl m-4">
+                        <img
+                                src="samplecover.png"
+                                className="rounded-2xl w-full h-80 object-cover"
+                                alt="..."
+                            />
+                            <h1>Title</h1>
+                    </div>
+                    <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center  rounded-2xl m-4">
+                        <img
+                                src="samplecover.png"
+                                className="rounded-2xl w-full h-80 object-cover"
+                                alt="..."
+                            />
+                            <h1>Title</h1>
+                    </div>
+                    <div class="shadow-lg bg-green-100 text-green-500 text-lg font-bold text-center  rounded-2xl m-4">
+                        <img
+                                src="samplecover.png"
+                                className="rounded-2xl w-full h-80 object-cover"
+                                alt="..."
+                            />
+                            <h1>Title</h1>
+                    </div>
+                    
+                    
                 </div>
                 <Footer/>
             </div>
