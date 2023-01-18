@@ -17,15 +17,29 @@ const Search = () => {
                 </div >
                 <div className="grid grid-cols-2 p-20">
                     <div></div>
-                    <div className="grid grid-cols-2 p-2">
-                        <div className="ml-auto text-white rounded-lg bg-slate-800 align-end flex">
-                            <p className="p-4">Sort by:</p>
-                            <SortByListbox/>
+                    <div className="grid grid-cols-2">
+                        <div className=" text-white rounded-lg bg-slate-800 align-end p-3 grid grid-cols-4 gap-0">
+                            <div>
+                                <p className="">Sort by:</p>
+                            </div>
+                            <div className="col-span-3">
+                                <SortByListbox/>
+                            </div>
+                            
+                        </div>
+                        <div className=" text-white rounded-lg bg-slate-800 align-end p-3 grid grid-cols-4 gap-0">
+                            <div>
+                                <p className="">Sortf by:</p>
+                            </div>
+                            <div className="col-span-3">
+                                <SortByListbox/>
+                            </div>
+                            
                         </div>
                     </div>
                     
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-4">
+                <div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
                     <div className='text-slate-100'>
                         <div class=" text-lg font-bold text-center  rounded-2xl m-4">
                             <img
