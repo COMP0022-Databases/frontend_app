@@ -1,10 +1,76 @@
-# COMP0022: Front-end server
+<p align="center">
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="public/logo.png" alt="Project logo"></a>
+</p>
+
+<h3 align="center"> COMP0022 Frontend App</h3>
+
+<div align="center">
+
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![GitHub Issues](https://img.shields.io/github/issues/COMP0022-Databases/frontend_app.svg)](https://github.com/COMP0022-Databases/frontend_app/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/COMP0022-Databases/frontend_app.svg)](https://github.com/COMP0022-Databases/frontend_app/pulls)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+
+
+
+
+</div>
+
+---
+
+<p align="center"> This is the front end server for the web-application built as part of the COMP0022 group project.
+    <br> 
+</p>
+
+## 📝 Table of Contents
+
+- [About](#about)
+- [Getting Started](#getting_started)
+- [Deployment](#deployment)
+- [Usage](#usage)
+- [Built Using](#built_using)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgement)
+
+## 🧐 About <a name = "about"></a>
+
 This is the front end server for the web-application built as part of the COMP0022 group project.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## How to use it?
+## 🏁 Getting Started <a name = "getting_started"></a>
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+You need to have the docker daemon installed to run the project. Al the other prerequisites will be installed when running.
+
+### Installing
+
+Install docker from the official website.
+
+## 🔧 Running the tests <a name = "tests"></a>
+
+How to run the automated tests for this system.
+
+```
+npm test
+```
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+
+## 🎈 Usage <a name="usage"></a>
+
+Add notes about how to use the system.
+
+## 🚀 Deployment <a name = "deployment"></a>
 
 In the project directory, you can run:
+
+### `docker-compose up (--build)`
+Runs the app inside a docker container (need to have the Docker daemon installed). Use --build when running for the first time (builds the container for the first time & installs the dependencies)
 
 ### `npm start`
 
@@ -14,10 +80,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -29,32 +92,27 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## ⛏️ Built Using <a name = "built_using"></a>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [ReactJS](https://www.mongodb.com/) - Framework
+- [TailwindCSS](https://expressjs.com/) - CSS Framework
+- [HeadlessUI](https://vuejs.org/) - Unstyled components
+- [NodeJs](https://nodejs.org/en/) - Server Environment
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ✍️ Authors <a name = "authors"></a>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [@V1ncenttt](https://github.com/V1ncenttt) - Idea & Initial work
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
 
-## Learn More
+## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- References
 
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
