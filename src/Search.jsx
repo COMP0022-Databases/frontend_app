@@ -3,6 +3,7 @@ import React from "react";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SortByListbox from './components/SortByListbox'
+import Filters from './components/Filters'
 const Search = () => {
 
     return (
@@ -10,36 +11,19 @@ const Search = () => {
             <div className='bg-[#000300] bg-opacity-80 text-white'>
                 <Navbar />
                 
+
                 <div className='max-w-[1240px] mx-auto text-white mt-4'>
                     <h1 className='md:text-7xl sm:text-6xl text-4xl font-bold md:py-6 sm:px-6 '>Movies.</h1>
                     <p className=' ml-6  md:text-2xl sm:text-xl text-slate-600'>Find thousands of movies with relevant ratings and analytics.</p>
 
                 </div >
-                <div className="grid grid-cols-2 p-20">
-                    <div></div>
-                    <div className="grid grid-cols-2">
-                        <div className=" text-white rounded-lg bg-slate-800 align-end p-3 grid grid-cols-4 gap-0">
-                            <div>
-                                <p className="">Sort by:</p>
-                            </div>
-                            <div className="col-span-3">
-                                <SortByListbox/>
-                            </div>
-                            
-                        </div>
-                        <div className=" text-white rounded-lg bg-slate-800 align-end p-3 grid grid-cols-4 gap-0">
-                            <div>
-                                <p className="">Sortf by:</p>
-                            </div>
-                            <div className="col-span-3">
-                                <SortByListbox/>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    
+
+                <div className="right-4 absolute flex gap-0 mt-10 md:right-0 sm:right-[-4em]">
+                    <SortByListbox/>
+                    <Filters/>
                 </div>
-                <div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+                
+                <div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 mt-40">
                     <div className='text-slate-100'>
                         <div class=" text-lg font-bold text-center  rounded-2xl m-4">
                             <img
