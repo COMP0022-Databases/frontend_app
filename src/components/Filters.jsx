@@ -4,25 +4,25 @@ import { Fragment } from 'react'
 
 const filters = [
   {
-    name: 'Insights',
+    name: 'Rating',
     description: 'Measure actions your users take',
     href: '##',
     icon: IconOne,
   },
   {
-    name: 'Automations',
+    name: 'Genre',
     description: 'Create your own targeted content',
     href: '##',
     icon: IconTwo,
   },
   {
-    name: 'Reports',
+    name: 'Date',
     description: 'Keep track of your growth',
     href: '##',
     icon: IconThree,
   },
 ]
-
+/** TODO: Change to normal list and do one per filter ???**/
 export default function Filters() {
   return (
     <div className="w-full max-w-sm px-4">
