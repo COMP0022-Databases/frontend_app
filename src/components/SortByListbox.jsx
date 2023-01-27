@@ -3,7 +3,7 @@ import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
 const sortBy = [
-  { by: 'Default' },
+  { by: 'Sort by:' },
   { by: 'Rating' },
   { by: 'Date' },
   { by: 'Title' },
@@ -16,10 +16,10 @@ export default function SortByListbox() {
   const [selected, setSelected] = useState(sortBy[0])
 
   return (
-    <div className="w-72 h-20">
+    <div className="w-72 h-20 pt-0">
       <Listbox value={selected} onChange={setSelected}>
-        <div className="mt-1">
-          <Listbox.Button className="h-8 w-full cursor-default rounded-lg bg-white py-0 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+        <div className="mt-0">
+          <Listbox.Button className="h-10 w-full cursor-default rounded-md bg-white py-0 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
             <span className="block truncate text-black">{selected.by}</span>
             <span className="pointer-events-none absolute inset-y-0 right-[18em] flex items-center">
               <ChevronUpDownIcon
@@ -40,7 +40,7 @@ export default function SortByListbox() {
                   key={personIdx}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                      active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
+                      active ? 'bg-sky-100 text-slate-900' : 'text-gray-900'
                     }`
                   }
                   value={person}
@@ -55,7 +55,7 @@ export default function SortByListbox() {
                         {person.by}
                       </span>
                       {selected ? (
-                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
+                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-fuchsia-600">
                           <CheckIcon className="h-5 w-5" aria-hidden="true" />
                         </span>
                       ) : null}
