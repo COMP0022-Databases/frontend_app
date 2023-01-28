@@ -11,6 +11,7 @@ const sortBy = [
 
 
 
+
 export default function SortByListbox() {
 
   const [selected, setSelected] = useState(sortBy[0])
@@ -21,7 +22,7 @@ export default function SortByListbox() {
         <div className="mt-0">
           <Listbox.Button className="h-10 w-full cursor-default rounded-md bg-white py-0 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
             <span className="block truncate text-black">{selected.by}</span>
-            <span className="pointer-events-none absolute inset-y-0 right-[18em] flex items-center">
+            <span className="pointer-events-none absolute inset-y-0  right-[16em]  top-[0.4em] xl:top-[-0.2em] md:top-[-0.2em] md:right-[18em] flex items-center">
               <ChevronUpDownIcon
                 className="h-5 w-5 text-gray-400 mt-[-2.8em] right-[40em]"
                 aria-hidden="true"

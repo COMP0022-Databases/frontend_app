@@ -1,6 +1,8 @@
 import { Popover, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Fragment } from 'react'
+import Slider from '@mui/material/Slider';
+import * as React from 'react';
 
 const filters = [
   {
@@ -22,8 +24,27 @@ const filters = [
     icon: IconThree,
   },
 ]
+
+function valuetext(value) {
+  return `${value}°C`;
+}
+
 /** TODO: Change to normal list and do one per filter ???**/
 export default function Filters() {
+
+  const [valueDate, setValueDate] = React.useState([1800, 2023]);
+  const [valueRating, setValueRating] = React.useState([0, 5]);
+
+  const handleChangeRating = (event, newValue) => {
+    setValueRating(newValue);
+  };
+
+  const handleChangeDate = (event, newValue) => {
+    setValueDate(newValue);
+  };
+  
+
+
   return (
     <div className="w-full max-w-sm px-4">
       <Popover className="relative">
@@ -52,7 +73,7 @@ export default function Filters() {
             >
               <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-60 max-w-sm -translate-x-[80%] transform px-4 sm:px-0 lg:max-w-3xl mr-80">
                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                  <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
+                  <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-1">
                     {filters.map((item) => (
                       <a
                         key={item.name}
@@ -72,22 +93,59 @@ export default function Filters() {
                         </div>
                       </a>
                     ))}
+                     <div>
+                      <a
+                          key={"Negro"}
+                          className=" text-black -m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                      >
+                    <div className="ml-4">
+                        <p className="text-sm font-medium text-gray-900">
+                          Release date
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          Movie relase date
+                        </p>
+                        <Slider
+                          getAriaLabel={() => 'Release date'}
+                          value={valueDate}
+                
+                          onChange={handleChangeDate}
+                          valueLabelDisplay="auto"
+                          min={1800}
+                          max={2023}
+                          color="secondary"
+                        />
+                        </div>
+                      </a>
+                    </div>
+
+                    <div>
+                      <a
+                          key={"Negro"}
+                          className=" text-black -m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                      >
+                      <div className="ml-4">
+                        <p className="text-sm font-medium text-gray-900">
+                          Rating
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          Rating min & max
+                        </p>
+                        <Slider
+                          getAriaLabel={() => 'Rating'}
+                          value={valueRating}
+                          marks={true}
+                          onChange={handleChangeRating}
+                          valueLabelDisplay="auto"
+                          min={0}
+                          max={5}
+                          color="secondary"
+                        />
+                        </div>
+                      </a>
+                    </div>
                   </div>
-                  <div className="bg-gray-50 p-4">
-                    <a
-                      href="##"
-                      className="flow-root rounded-md px-2 py-2 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-                    >
-                      <span className="flex items-center">
-                        <span className="text-sm font-medium text-gray-900">
-                          Documentation
-                        </span>
-                      </span>
-                      <span className="block text-sm text-gray-500">
-                        Start integrating products and tools
-                      </span>
-                    </a>
-                  </div>
+                  
                 </div>
               </Popover.Panel>
             </Transition>
