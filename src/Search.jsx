@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SortByListbox from './components/SortByListbox'
 import Filters from './components/Filters'
+
 const Search = () => {
 
     return (
@@ -11,7 +12,6 @@ const Search = () => {
             <div className='bg-[#000300] bg-opacity-80 text-white'>
                 <Navbar />
                 
-
                 <div className='max-w-[1240px] mx-auto text-white mt-4'>
                     <h1 className='md:text-7xl sm:text-6xl text-4xl font-bold md:py-6 sm:px-6 '>Movies.</h1>
                     <p className=' ml-6  md:text-2xl sm:text-xl text-slate-600'>Find thousands of movies with relevant ratings and analytics.</p>
