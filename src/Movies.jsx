@@ -1,11 +1,14 @@
 
 import React from "react";
+import {useSearchParams} from "react-router-dom";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SortByListbox from './components/SortByListbox'
 import Filters from './components/Filters'
 
-const Search = () => {
+const Movies = () => {
+    const [searchParams, setSearchparams] = useSearchParams();
+
 
     return (
         <div className='bg-[url("../public/8.png")] bg-no-repeat'>
@@ -21,8 +24,9 @@ const Search = () => {
                 <div className="right-4 absolute flex gap-0 mt-10 md:right-0 sm:right-[-4em]">
                     <SortByListbox/>
                     <Filters/>
+                     
                 </div>
-                
+                <h1> gggg {searchParams.get('query')} </h1>
                 <div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 mt-40">
                     <div className='text-slate-100'>
                         <div class=" text-lg font-bold text-center  rounded-2xl m-4">
@@ -49,4 +53,4 @@ const Search = () => {
     )
 }
 
-export default Search
+export default Movies

@@ -17,7 +17,7 @@ const Navbar = () => {
             <div className='hidden md:flex'><SearchBar/></div>
             <ul className ='hidden md:flex'>
                 {pathname === '/' ? <li className='p-4 text-fuchsia-300'>Home</li> : <Link to='/'><li className='p-4 hover:text-pink-200'>Home</li></Link>}
-                {pathname === '/search' ? <li className='p-4 text-fuchsia-300'>Search</li> : <Link to='/search'><li className='p-4 hover:text-pink-200'>Search</li></Link>}
+                {pathname === '/movies' ? <li className='p-4 text-fuchsia-300'>Movies</li> : <Link to='/movies'><li className='p-4 hover:text-pink-200'>Movies</li></Link>}
                 <li className='p-4'>Genres</li>
             </ul>
             <div onClick={handleNav} className='block md:hidden sm:pr-6'>
@@ -27,7 +27,7 @@ const Navbar = () => {
                 <Link to='/'><img src="logo.png" class="object-cover h-48 mt-[-48px] ml-4" alt="..." /></Link>
                 <ul className='uppercase p-4 divide-y divide-slate-600'>
                     {pathname === '/' ? <li className='p-4 text-fuchsia-300'>Home</li> : <Link to='/'><li className='p-4 hover:text-pink-200'>Home</li></Link>}
-                    {pathname === '/search' ? <li className='p-4 text-fuchsia-300'>Search</li> : <Link to='/search'><li className='p-4 hover:text-pink-200'>Search</li></Link>}
+                    {pathname === '/movies' ? <li className='p-4 text-fuchsia-300'>Movies</li> : <Link to='/movies'><li className='p-4 hover:text-pink-200'>Movies</li></Link>}
                     <li className='p-4'>Genres</li>
                 </ul>
             </div>

@@ -4,7 +4,8 @@ import { Fragment } from 'react'
 import Slider from '@mui/material/Slider';
 import AutocompleteGenres from './AutocompleteGenres';
 import * as React from 'react';
-
+import {Link} from "react-router-dom";
+import { useSearchParams } from 'react-router-dom';
 
 
 
@@ -13,15 +14,28 @@ export default function Filters() {
 
   const [valueDate, setValueDate] = React.useState([1800, 2023]);
   const [valueRating, setValueRating] = React.useState([0, 5]);
+  const [valueGenre, setValueGenre] = React.useState([]);
+  const [searchParams, setSearchparams] = useSearchParams();
+
+  const handleChangeGenre = (genres) => {
+    setValueGenre(genres);
+  
+  }
 
   const handleChangeRating = (event, newValue) => {
+    
     setValueRating(newValue);
   };
 
   const handleChangeDate = (event, newValue) => {
+    
     setValueDate(newValue);
   };
   
+
+  React.useEffect(() => {
+    console.log(valueGenre);
+  },[valueGenre]);
 
 
   return (
@@ -55,9 +69,9 @@ export default function Filters() {
                   <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-1">                 
                     
                     <div
-                          className=" text-black -m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                          className=" text-black -m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50 pb-[3.2rem]"
                     >
-                      <div className="ml-4">
+                      <div className="ml-2 xl:ml-4">
                           <p className="text-sm font-medium text-gray-900">
                             Genre
                           </p>
@@ -65,7 +79,7 @@ export default function Filters() {
                             Filter genres.
                           </p>
                           
-                          <AutocompleteGenres/>
+                          <AutocompleteGenres handleChangeGenre={handleChangeGenre}/>
                           
                           
                       </div>
@@ -75,7 +89,7 @@ export default function Filters() {
                         
                         className=" text-black -m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                     >
-                      <div className="ml-4">
+                      <div className="ml-2 xl:ml-4">
                           <p className="text-sm font-medium text-gray-900">
                             Release date
                           </p>
@@ -100,7 +114,7 @@ export default function Filters() {
                         
                         className=" text-black -m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                     >
-                      <div className="ml-4">
+                      <div className="ml-2 xl:ml-4">
                         <p className="text-sm font-medium text-gray-900">
                           Rating
                         </p>
@@ -118,9 +132,19 @@ export default function Filters() {
                           color="secondary"
                         />
                       </div>
+                      
                     </div>
+                    <div
+                        className=" text-black -m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                      >
+                        <div className='ml-2 xl:ml-4'>
+                          <h1> gggg {searchParams.get('query')} </h1>
+                          <Link to="/movies">
+                            <button className='xl:px-14  px-12 md:px-14  sm:px-14 font-semibold transition ease-in-out delay-150 bg-gradient-to-r from-pink-200 to-fuchsia-300  hover:bg-gradient-to-r hover:to-blue-300 hover:from-sky-200 duration-300  opacity-80 my-6 mx-auto py-3 mt-8 w-full rounded-md text-black drop-shadow-2xl'>Submit</button>
+                          </Link>
+                        </div>
+                      </div>
                   </div>
-                  
                   
                 </div>
               </Popover.Panel>

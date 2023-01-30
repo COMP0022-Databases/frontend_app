@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState} from 'react'
 import { Combobox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
@@ -11,9 +11,15 @@ const people = [
   { id: 6, name: 'Hellen Schmidt' },
 ]
 
-export default function AutocompleteGenres() {
-    const [selected, setSelected] = useState([people[0], people[1]])
+export default function AutocompleteGenres({handleChangeGenre}) {
+    const [selected, setSelected] = useState([])
     const [query, setQuery] = useState('')
+
+
+    const twoCalls = e => {
+        setSelected(e)
+        handleChangeGenre(e)
+      }
 
     const filteredPeople =
     query === ''
@@ -27,7 +33,7 @@ export default function AutocompleteGenres() {
 
     return (
     <div className="fixed top-16 w-[10.2rem] z-[1600]">
-    <Combobox value={selected} onChange={setSelected} multiple>
+    <Combobox value={selected} onChange={twoCalls} multiple>
         <div className="relative mt-1">
         <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
             <Combobox.Input
