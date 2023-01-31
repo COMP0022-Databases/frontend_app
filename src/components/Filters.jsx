@@ -9,32 +9,59 @@ import { useSearchParams } from 'react-router-dom';
 import buildFiltersURL from '../utils/StringUtils';
 
 
+const people = [
+  { id: 1, name: 'Wade Cooper' },
+  { id: 2, name: 'Arlene Mccoy' },
+  { id: 3, name: 'Devon Webb' },
+  { id: 4, name: 'Tom Cook' },
+  { id: 5, name: 'Tanya Fox' },
+  { id: 6, name: 'Hellen Schmidt' },
+]
+
 
 export default function Filters() {
 
-  const [valueGenre, setValueGenre] = React.useState([]);
+  
   const [searchParams, setSearchParams] = useSearchParams();
   let minRating = 0
   let maxRating = 5
   let from = 1800
   let to = 2023
+  let genres = []
+  React.useEffect(() => {
+    if (!(searchParams.get("min_rating") === null || searchParams.get("max_rating") === null)) {
+      minRating = searchParams.get("min_rating")
+      maxRating = searchParams.get("max_rating")
+      
+    }
 
-  if (!(searchParams.get("min_rating") === null || searchParams.get("max_rating") === null)) {
-    minRating = searchParams.get("min_rating")
-    maxRating = searchParams.get("max_rating")
-    
-  }
+    if (!(searchParams.get("from") === null || searchParams.get("to") === null)) {
+      from = searchParams.get("from")
+      to = searchParams.get("to")
+      
+    }
+    if (!(searchParams.get("genres") === null)) {
+      let selectedGenres = (searchParams.get("genres")).slice(1, -1).split(",")
+      
+      let selected = selectedGenres.map(function(item) {
+        return parseInt(item, 10);
+      });
 
-  if (!(searchParams.get("from") === null || searchParams.get("to") === null)) {
-    from = searchParams.get("from")
-    to = searchParams.get("to")
-    
-  }
+      genres = selected.map(i => people[i-1])
+      if (typeof genres[-1] == 'undefined'){
+        console.log("...")
+        
+          searchParams.delete('genres')
+          setSearchParams(searchParams)
+      
 
+      }
+    }
+  }, [searchParams, setSearchParams]);
 
   const [valueRating, setValueRating] = React.useState([minRating, maxRating])
   const [valueDate, setValueDate] = React.useState([from, to]) 
-  
+  const [valueGenre, setValueGenre] = React.useState(genres);
 
   const handleChangeGenre = (genres) => {
     setValueGenre(genres);
@@ -51,10 +78,6 @@ export default function Filters() {
     setValueDate(newValue);
   };
   
-
-  React.useEffect(() => {
-    console.log(valueGenre);
-  },[valueGenre]);
 
 
   return (
@@ -98,7 +121,7 @@ export default function Filters() {
                             Filter genres.
                           </p>
                           
-                          <AutocompleteGenres handleChangeGenre={handleChangeGenre}/>
+                          <AutocompleteGenres handleChangeGenre={handleChangeGenre} initialValue={valueGenre} values={people} />
                           
                           
                       </div>
@@ -158,7 +181,7 @@ export default function Filters() {
                       >
                         <div className='ml-2 xl:ml-4'>
                           
-                          <Link to={buildFiltersURL(valueRating[0], valueRating[1], valueDate[0], valueDate[1])}>
+                          <Link to={buildFiltersURL(valueRating[0], valueRating[1], valueDate[0], valueDate[1], valueGenre)}>
                             <button className='xl:px-14  px-12 md:px-14  sm:px-14 font-semibold transition ease-in-out delay-150 bg-gradient-to-r from-pink-200 to-fuchsia-300  hover:bg-gradient-to-r hover:to-blue-300 hover:from-sky-200 duration-300  opacity-80 my-6 mx-auto py-3 mt-8 w-full rounded-md text-black drop-shadow-2xl'>Submit</button>
                           </Link>
                         </div>

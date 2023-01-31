@@ -1,9 +1,9 @@
 import React from 'react'
 import "./App.css";
 
-import Home from './Home'
-import Movies from './Movies'
-import ErrorPage from './ErrorPage'
+import Home from './pages/Home'
+import Movies from './pages/Movies'
+import ErrorPage from './pages/ErrorPage'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 function App() {

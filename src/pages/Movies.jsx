@@ -1,10 +1,10 @@
 
 import React from "react";
 import {useSearchParams} from "react-router-dom";
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import SortByListbox from './components/SortByListbox'
-import Filters from './components/Filters'
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import SortByListbox from '../components/SortByListbox'
+import Filters from "../components/Filters";
 
 const Movies = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -27,9 +27,9 @@ const Movies = () => {
                      
                 </div>
                 <h1>{searchParams.get('query')} </h1>
-                <div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 mt-40">
+                <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 mt-40">
                     <div className='text-slate-100'>
-                        <div class=" text-lg font-bold text-center  rounded-2xl m-4">
+                        <div className=" text-lg font-bold text-center  rounded-2xl m-4">
                             <img
                                     src="samplecover.png"
                                     className="rounded-2xl w-full h-100 object-cover hover:opacity-60 shadow-lg"
