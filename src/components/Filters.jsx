@@ -7,7 +7,7 @@ import * as React from 'react';
 import {Link} from "react-router-dom";
 import { useSearchParams } from 'react-router-dom';
 import buildFiltersURL from '../utils/StringUtils';
-
+import { getRatingFilter, getGenreFilter, getDateFilter } from '../utils/QueryUtils';
 
 const people = [
   { id: 1, name: 'Wade Cooper' },
@@ -23,44 +23,26 @@ export default function Filters() {
 
   
   const [searchParams, setSearchParams] = useSearchParams();
-  let minRating = 0
-  let maxRating = 5
-  let from = 1800
-  let to = 2023
-  let genres = []
+  let ratingFilter = getRatingFilter(searchParams)
+  let dateFilter = getDateFilter(searchParams)
+  let genres = getGenreFilter(searchParams, people)
+  
   React.useEffect(() => {
-    if (!(searchParams.get("min_rating") === null || searchParams.get("max_rating") === null)) {
-      minRating = searchParams.get("min_rating")
-      maxRating = searchParams.get("max_rating")
-      
-    }
-
-    if (!(searchParams.get("from") === null || searchParams.get("to") === null)) {
-      from = searchParams.get("from")
-      to = searchParams.get("to")
-      
-    }
-    if (!(searchParams.get("genres") === null)) {
-      let selectedGenres = (searchParams.get("genres")).slice(1, -1).split(",")
-      
-      let selected = selectedGenres.map(function(item) {
-        return parseInt(item, 10);
-      });
-
-      genres = selected.map(i => people[i-1])
-      if (typeof genres[-1] == 'undefined'){
+    // Handle errors where wrong filters are entered
+    // TODO: Do the same for all???
+    if (typeof genres[-1] == 'undefined' & genres.length === 1){
+       console.log(genres)
         console.log("...")
-        
-          searchParams.delete('genres')
-          setSearchParams(searchParams)
       
+        searchParams.delete('genres')
+        setSearchParams(searchParams)
+    
 
-      }
     }
-  }, [searchParams, setSearchParams]);
+  }, [searchParams, setSearchParams, genres]);
 
-  const [valueRating, setValueRating] = React.useState([minRating, maxRating])
-  const [valueDate, setValueDate] = React.useState([from, to]) 
+  const [valueRating, setValueRating] = React.useState(ratingFilter)
+  const [valueDate, setValueDate] = React.useState(dateFilter) 
   const [valueGenre, setValueGenre] = React.useState(genres);
 
   const handleChangeGenre = (genres) => {

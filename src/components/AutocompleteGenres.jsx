@@ -8,7 +8,6 @@ export default function AutocompleteGenres({handleChangeGenre, initialValue, val
     const [selected, setSelected] = useState(initialValue)
     const [query, setQuery] = useState('')
 
-    console.log(initialValue)
     const twoCalls = e => {
         setSelected(e)
         handleChangeGenre(e)
