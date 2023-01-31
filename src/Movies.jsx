@@ -7,7 +7,7 @@ import SortByListbox from './components/SortByListbox'
 import Filters from './components/Filters'
 
 const Movies = () => {
-    const [searchParams, setSearchparams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
 
 
     return (
@@ -26,7 +26,7 @@ const Movies = () => {
                     <Filters/>
                      
                 </div>
-                <h1> gggg {searchParams.get('query')} </h1>
+                <h1>{searchParams.get('query')} </h1>
                 <div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 mt-40">
                     <div className='text-slate-100'>
                         <div class=" text-lg font-bold text-center  rounded-2xl m-4">

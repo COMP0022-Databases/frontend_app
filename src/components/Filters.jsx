@@ -6,16 +6,35 @@ import AutocompleteGenres from './AutocompleteGenres';
 import * as React from 'react';
 import {Link} from "react-router-dom";
 import { useSearchParams } from 'react-router-dom';
+import buildFiltersURL from '../utils/StringUtils';
 
 
 
-/** TODO: Change to normal list and do one per filter ???**/
 export default function Filters() {
 
-  const [valueDate, setValueDate] = React.useState([1800, 2023]);
-  const [valueRating, setValueRating] = React.useState([0, 5]);
   const [valueGenre, setValueGenre] = React.useState([]);
-  const [searchParams, setSearchparams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  let minRating = 0
+  let maxRating = 5
+  let from = 1800
+  let to = 2023
+
+  if (!(searchParams.get("min_rating") === null || searchParams.get("max_rating") === null)) {
+    minRating = searchParams.get("min_rating")
+    maxRating = searchParams.get("max_rating")
+    
+  }
+
+  if (!(searchParams.get("from") === null || searchParams.get("to") === null)) {
+    from = searchParams.get("from")
+    to = searchParams.get("to")
+    
+  }
+
+
+  const [valueRating, setValueRating] = React.useState([minRating, maxRating])
+  const [valueDate, setValueDate] = React.useState([from, to]) 
+  
 
   const handleChangeGenre = (genres) => {
     setValueGenre(genres);
@@ -138,8 +157,8 @@ export default function Filters() {
                         className=" text-black -m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                       >
                         <div className='ml-2 xl:ml-4'>
-                          <h1> gggg {searchParams.get('query')} </h1>
-                          <Link to="/movies">
+                          
+                          <Link to={buildFiltersURL(valueRating[0], valueRating[1], valueDate[0], valueDate[1])}>
                             <button className='xl:px-14  px-12 md:px-14  sm:px-14 font-semibold transition ease-in-out delay-150 bg-gradient-to-r from-pink-200 to-fuchsia-300  hover:bg-gradient-to-r hover:to-blue-300 hover:from-sky-200 duration-300  opacity-80 my-6 mx-auto py-3 mt-8 w-full rounded-md text-black drop-shadow-2xl'>Submit</button>
                           </Link>
                         </div>
